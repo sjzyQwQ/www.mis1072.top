@@ -17,45 +17,8 @@
         
         <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
         <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
-        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script>
-            var _change;
-            function hitokoto() {
-                $.ajax({
-                    url: "https://v1.hitokoto.cn",
-                    dataType: "json",
-                    data: {
-                        "c": "a",
-                        "c": "b",
-                        "encode": "json",
-                        "charset": "utf-8"
-                    },
-                    success: function (data) {
-                        $("#information").text(data.hitokoto);
-                    }
-                })
-                _change = 1;
-            }
-            function ipw() {
-                $.ajax({
-                    url: "https://test.ipw.cn/api/ip/myip",
-                    dataType: "json",
-                    data: "json",
-                    success: function (data) {
-                        $("#information").text("您的公网" + data.IPVersion + "地址为：" + data.IP);
-                    }
-                })
-                _change = 0;
-            }
-            function change() {
-                if (_change == 0) {
-                    hitokoto();
-                } else {
-                    ipw();
-                }
-            }
-            hitokoto();
-        </script>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script src="https://cdn.mis1072.top/hitokoto_ip.js"></script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body>
         <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
@@ -98,7 +61,7 @@
             <span>&ensp;关于</span>
         </a>
         
-        <a target="_blank" rel="noopener" href="https://dl.mis1072.top">
+        <a target="_blank" rel="noopener" href="https://d.mis1072.top">
             <i class="fa-solid fa-file-arrow-down fa-fw"></i>
             <span>&ensp;下载站</span>
         </a>
@@ -158,7 +121,7 @@
                 </div>
             </a>
             
-            <a target="_blank" rel="noopener" href="https://dl.mis1072.top">
+            <a target="_blank" rel="noopener" href="https://d.mis1072.top">
                 <div class="item">
                     <div style="min-width: 20px; max-width: 50px; width: 10%">
                         <i class="fa-solid fa-file-arrow-down fa-fw"></i>
@@ -235,7 +198,8 @@
 <p>本服务器采用白名单机制，请将自己的正版MC档案名称发送给腐竹以添加白名单</p>
 </blockquote>
 <blockquote>
-<h3 id="2022-10-26-13-50"><a href="#2022-10-26-13-50" class="headerlink" title="2022-10-26 13:50"></a><strong>2022-10-26 13:50</strong></h3><p>暂时不开服了，等恢复时间待定</p>
+<p>2022-10-26 13:50站长信：</p>
+<p>暂时不开服了，恢复时间待定</p>
 </blockquote>
 
             
@@ -250,14 +214,14 @@
         
         <span class="tag">
             
-            <a href="/tags/minecraft/" style="color: #00bcd4">
+            <a href="/tags/minecraft/" style="color: #ffa2c4">
                 我的世界
             </a>
         </span>
         
         <span class="tag">
             
-            <a href="/tags/server/" style="color: #03a9f4">
+            <a href="/tags/server/" style="color: #ffa2c4">
                 服务器
             </a>
         </span>
@@ -385,14 +349,26 @@
         <div class="friend-links">
             
             <div class="friend-link">
-                <a target="_blank" rel="noopener" href="https://dl.mis1072.top">
+                <a target="_blank" rel="noopener" href="https://d.mis1072.top">
                     饺子の下载站
                 </a>
             </div>
             
             <div class="friend-link">
                 <a target="_blank" rel="noopener" href="https://www.mis1042.com">
-                    Misaka的小站
+                    Misaka10042的小站
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://blog.misakanetwork.site">
+                    御坂20002号的小站
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://misakabit.com">
+                    MisakaBit
                 </a>
             </div>
             
@@ -424,7 +400,12 @@
             
         </div>
         
-        <div id="information" onclick="change()"></div>
+        <div id="welcome"></div>
+        <div id="information"></div>
+        <script>
+            hitokoto();
+            api_status();
+        </script>
     </div>
 </footer>
                     </div>
